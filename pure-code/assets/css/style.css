@@ -1,0 +1,145 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #fbc02d;
+}
+.header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: hsl(211, 100%, 85%);
+    padding: 0 1.5625rem;
+    transition: .3s;
+}
+.logo a {
+    display: block;
+}
+.logo a img {
+    display: block;
+    width: 100%;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+    transition: .3s;
+}
+.menu li {
+    list-style-type: none;
+}
+.menu li a {
+    color: #312ECB;
+    text-decoration: none;
+    display: block;
+    padding: 2.5rem 1.5625rem;
+    font-size: 1.125rem;
+    line-height: 1;
+    transition: .3s;
+}
+.menu li a:hover {
+    color: #007AFF;
+    box-shadow: 0 -5px 0 #312ECB inset,
+    500px 0 0 rgba(255,255,255, .3) inset;
+    padding: 2.1875rem 1.5625rem 2.8125rem 1.5625rem;
+}
+.hamburger {
+    position: relative;
+    width: 1.875rem;
+    height: .25rem;
+    background: #312ECB;
+    border-radius: .625rem;
+    cursor: pointer;
+    z-index: 2;
+    transition: .3s;
+}
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    position: absolute;
+    height: .25rem;
+    right: 0;
+    background: #312ECB;
+    border-radius: .625rem;
+    transition: .3s;
+}
+.hamburger::before {
+    top: -.625rem;
+    width: 1.25rem;
+}
+.hamburger::after {
+    top: .625rem;
+    width: 1.5625rem;
+}
+.toggle-menu {
+    position: absolute;
+    width: 1.875rem;
+    height: 100%;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0;
+}
+.hamburger,
+.toggle-menu {
+    display: none;
+}
+.navigation input:checked ~ .hamburger {
+    background: transparent;
+}
+.navigation input:checked ~ .hamburger::before {
+    top: 0;
+    transform: rotate(-45deg);
+    width: 1.875rem;
+}
+.navigation input:checked ~ .hamburger::after {
+    top: 0;
+    transform: rotate(45deg);
+    width: 1.875rem;
+}
+.navigation input:checked ~ .menu {
+    right: 0;
+    box-shadow: -1.25rem 0 2.5rem rgba(0,0,0, .3);
+}
+@media screen and (max-width: 62em) {
+    .hamburger,
+    .toggle-menu {
+    display: block;
+    }
+    .header {
+        padding: .82rem 1.25rem;
+    }
+    .menu {
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: -18.75rem;
+        background: hsl(211, 100%, 85%);
+        width: 18.75rem;
+        height: 100%;
+        padding-top: 4.0625rem;
+    }
+    .menu li {
+        width: 100%;
+    }
+    .menu li a {
+        padding: 1.875rem;
+        font-size: 1.5rem;
+        box-shadow: 0 1px 0 rgba(255,255,255, .1) inset;
+    }
+}
